@@ -1,4 +1,5 @@
 
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import { useAuth } from "../context/AuthContext";
@@ -42,6 +43,11 @@ export default function LoginPage() {
         <Button type="submit" variant="contained" fullWidth sx={{ mt: 2 }}>
           Login
         </Button>
+
+        <Typography variant="body2" align="center" mt={2}>
+          Don't have an account? <Link to="/register">Register</Link>
+        </Typography>
+
       </form>
     </Box>
   );

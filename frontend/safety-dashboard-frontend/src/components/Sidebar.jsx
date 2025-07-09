@@ -17,9 +17,13 @@ import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import LogoutIcon from "@mui/icons-material/Logout";
+import { useAuth } from "../context/AuthContext";
+
 export default function Sidebar() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+  const { logout } = useAuth();
 
   const navItems = [
     { text: "Dashboard", icon: <DashboardIcon />, path: "/" },
@@ -56,6 +60,18 @@ export default function Sidebar() {
                 </ListItemButton>
               </ListItem>
             ))}
+
+            <ListItem disablePadding>
+              <ListItemButton
+                onClick={() => {
+                  logout();
+                  navigate("/login");
+                }}
+              >
+                <ListItemIcon><LogoutIcon /></ListItemIcon>
+                <ListItemText primary="Logout" />
+              </ListItemButton>
+            </ListItem>
           </List>
         </div>
       </Drawer>

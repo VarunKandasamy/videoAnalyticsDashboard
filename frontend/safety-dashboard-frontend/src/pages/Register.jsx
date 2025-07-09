@@ -1,4 +1,5 @@
 
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -42,6 +43,11 @@ export default function RegisterPage() {
         <Button type="submit" variant="contained" fullWidth sx={{ mt: 2 }}>
           Register
         </Button>
+
+        <Typography variant="body2" align="center" mt={2}>
+          Already have an account? <Link to="/login">Login</Link>
+        </Typography>
+
       </form>
     </Box>
   );
